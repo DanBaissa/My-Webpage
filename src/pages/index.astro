@@ -1,0 +1,723 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const focusAreas = [
+  "Time series methods",
+  "Causal inference",
+  "Machine learning",
+  "Interpretable data science for complex observational data"
+];
+
+const selectedWork = [
+  {
+    category: "Teaching",
+    title: "A Basic Introduction to Stats Concepts",
+    description:
+      "A Bookdown-style introduction to statistics and data science built from teaching undergraduates at Harvard.",
+    href: "/Intro_to_stats/"
+  },
+  {
+    category: "Conflict Modeling",
+    title: "Estimating Displacement Caused by War in Tigray",
+    description:
+      "Satellite-informed modeling of displacement patterns during the Tigray conflict.",
+    href: "/Tigray_Conflict_TS.html"
+  },
+  {
+    category: "Remote Sensing",
+    title: "Using Satellites to Estimate Population",
+    description:
+      "Population estimation with VIIRS night lights at a 10km by 10km grid-cell level.",
+    href: "/web_All_GPW-V4_Results_Final.html"
+  },
+  {
+    category: "Methods",
+    title: "Using Survival Models to Estimate Coup Probabilities",
+    description:
+      "An applied survival modeling project on the timing and likelihood of coups.",
+    href: "/Coup_Survival.html"
+  },
+  {
+    category: "Machine Learning",
+    title: "Stock Price Prediction with Transformers",
+    description:
+      "A transformer experiment exploring time-series forecasting and trading strategy design.",
+    href: "https://danbaissa.github.io/NLP/Transformer_Time/Karas_Stock_Price_Prediction_Trading_Strategy"
+  },
+  {
+    category: "NLP Teaching",
+    title: "Transformer Model Portfolio",
+    description:
+      "A hands-on tutorial collection spanning hate speech detection, autism diagnosis, multimodal tasks, speech, and attention visualization.",
+    href: "/Transformers/index.html"
+  }
+];
+
+const publications = [
+  {
+    title: "When BLUE is not best: non-normal errors and the linear model",
+    description:
+      "A methods paper on robustness, outliers, and why standard least-squares workflows often need stronger diagnostics and estimators.",
+    href: "https://doi.org/10.1017/psrm.2018.34",
+    meta: "Published research"
+  },
+  {
+    title: "Albedo as a Measure of Climate Change for Civil War Research",
+    description:
+      "Argues that albedo can capture land carrying-capacity change in ways that are more politically meaningful than coarse climate indicators alone.",
+    href: "/papers/Baissa_Albedo_Civil_War.pdf",
+    meta: "Working paper"
+  },
+  {
+    title: "Climate Change, Desertification, and Migration",
+    description:
+      "Studies drought, desertification, and urban migration in Syria using albedo and night lights as linked environmental and demographic signals.",
+    href: "/papers/Baissa_Climate_and_Migration_NATURE_Length.pdf",
+    meta: "Preprint"
+  },
+  {
+    title: "Bringing the Civil Back into Civil Military Relations",
+    description:
+      "Reframes coup risk around civilian state and party strength rather than military variables alone.",
+    href: "/papers/Bringing_the_Civil_Back_into_Civil_Military_Relations.pdf",
+    meta: "Preprint"
+  }
+];
+
+const experience = [
+  {
+    role: "Research Fellow",
+    org: "Weatherhead Center for International Affairs, Harvard University",
+    body:
+      "Conducted research for the Center’s leadership, translating complex international relations and political science questions into clear analytic outputs for academic and policy audiences."
+  },
+  {
+    role: "Teaching Fellow and Instructional Fellow",
+    org: "Gov 50 Data, Harvard University",
+    body:
+      "Designed and taught core data science material, helping students move from hypothesis formation to data collection, analysis, and public-facing communication."
+  },
+  {
+    role: "Teaching Support",
+    org: "Behavioural Insights and Public Policy: Nudging for Good",
+    body:
+      "Guided students through applied behavioral economics, intervention design, and evidence-based policy evaluation."
+  }
+];
+
+const astroPhotos = [
+  { src: "/Astro/Maia.jpg", alt: "Pleiades star cluster" },
+  { src: "/Astro/Rosette.jpg", alt: "Rosette nebula" },
+  { src: "/Astro/Orion2.jpg", alt: "Orion nebula" },
+  { src: "/Astro/Moon1.PNG", alt: "Moon close-up" },
+  { src: "/Astro/Mini_pillars_first_try.jpg", alt: "Nebula pillars" },
+  { src: "/Astro/ZJupiter.jpg", alt: "Jupiter" }
+];
+---
+
+<BaseLayout>
+  <main class="page-shell">
+    <div class="backdrop backdrop-one"></div>
+    <div class="backdrop backdrop-two"></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top">Daniel K Baissa</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#gallery">Astrophotography</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Harvard Government • Time Series • Causal Inference • Interpretable Machine Learning</p>
+        <h2 class="hero-title">Causal inference and data science for hard-to-measure, noisy observational data.</h2>
+        <p class="lead">
+          My work focuses on building and applying data science methods for messy real-world settings,
+          especially where measurement is difficult and the data are noisy, incomplete, or spatially
+          structured. I am particularly interested in combining machine learning with interpretable
+          modeling so that prediction, explanation, and substantive understanding remain connected.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#research">Selected research</a>
+          <a class="button button-secondary" href="#projects">Methods and projects</a>
+        </div>
+
+        <ul class="focus-list" aria-label="Research focus">
+          {focusAreas.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <aside class="hero-card">
+        <img src="/profile.jpg" alt="Portrait of Daniel K Baissa" class="portrait" />
+        <div class="hero-card-copy">
+          <h2>Daniel K Baissa</h2>
+          <p>Ph.D. candidate in Government at Harvard University.</p>
+          <p>
+            Methods: R, Python, SQL, Shiny, Stata, LaTeX, GIS, remote sensing, transformers, BART,
+            random forests, and gradient boosting.
+          </p>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:danbaissa@gmail.com">Email</a>
+          <a href="https://github.com/DanBaissa/" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section-grid" id="research">
+      <div class="section-heading">
+        <p class="eyebrow">Research</p>
+        <h2>Selected publications and current lines of inquiry.</h2>
+      </div>
+      <div class="publication-stack">
+        {publications.map((item) => (
+          <article class="publication-card">
+            <p class="meta">{item.meta}</p>
+            <h3><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-grid" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Projects</p>
+        <h2>Methods, teaching materials, and applied research builds.</h2>
+      </div>
+      <div class="project-grid">
+        {selectedWork.map((item) => (
+          <article class="project-card">
+            <p class="meta">{item.category}</p>
+            <h3><a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{item.title}</a></h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-panel" id="teaching">
+      <div class="section-heading">
+        <p class="eyebrow">Teaching and experience</p>
+        <h2>Work that sits between substantive research, pedagogy, and policy relevance.</h2>
+        <p class="section-text">
+          My teaching and research support roles center on making quantitative methods legible and useful,
+          whether for undergraduates learning data science or for academic leaders shaping research agendas.
+        </p>
+      </div>
+      <div class="timeline">
+        {experience.map((item) => (
+          <article class="timeline-item">
+            <h3>{item.role}</h3>
+            <p class="timeline-org">{item.org}</p>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="signal-band">
+      <div>
+        <p class="eyebrow">Research agenda</p>
+        <h2>Building interpretable evidence for high-stakes political questions.</h2>
+      </div>
+      <p>
+        The through-line across my work is methodological clarity: using stronger data and better models to
+        explain violence, migration, and state instability in ways that remain substantively meaningful.
+      </p>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Astrophotography</p>
+        <h2>A separate practice in observation, patience, and image processing.</h2>
+        <p class="section-text">
+          Outside political science, I also capture and process astrophotography. The gallery stays on the site,
+          but as a distinct visual register rather than part of the academic core.
+        </p>
+      </div>
+      <div class="gallery-grid">
+        {astroPhotos.map((item) => (
+          <a class="gallery-card" href={item.src} target="_blank" rel="noreferrer">
+            <img src={item.src} alt={item.alt} loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  :global(:root) {
+    color-scheme: light;
+    --bg: #f5f1e8;
+    --panel: rgba(255, 252, 246, 0.82);
+    --panel-strong: #fffdf8;
+    --ink: #17211f;
+    --muted: #5e6865;
+    --line: rgba(23, 33, 31, 0.12);
+    --accent: #17493f;
+    --accent-soft: #d7ebe3;
+    --warm: #b46c45;
+    --shadow: 0 30px 80px rgba(41, 48, 45, 0.12);
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    min-width: 320px;
+    font-family: "Manrope", sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at top left, rgba(180, 108, 69, 0.12), transparent 28%),
+      linear-gradient(180deg, #f8f5ee 0%, var(--bg) 52%, #efe8db 100%);
+  }
+
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page-shell {
+    position: relative;
+    overflow: hidden;
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 24px 0 80px;
+  }
+
+  .backdrop {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(24px);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .backdrop-one {
+    top: 48px;
+    right: -120px;
+    width: 320px;
+    height: 320px;
+    background: rgba(23, 73, 63, 0.14);
+  }
+
+  .backdrop-two {
+    top: 560px;
+    left: -160px;
+    width: 360px;
+    height: 360px;
+    background: rgba(180, 108, 69, 0.14);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 16px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 252, 246, 0.72);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 18px 50px rgba(32, 38, 35, 0.08);
+  }
+
+  .wordmark {
+    font-family: "Fraunces", serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .site-nav a:hover,
+  .publication-card a:hover,
+  .project-card a:hover,
+  .contact-row a:hover {
+    color: var(--accent);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.9fr);
+    gap: 28px;
+    align-items: stretch;
+    margin-bottom: 28px;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .section-grid,
+  .split-panel,
+  .signal-band,
+  .gallery-section {
+    position: relative;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+  }
+
+  .hero-copy {
+    border-radius: 34px;
+    padding: 48px;
+  }
+
+  .eyebrow,
+  .meta,
+  .card-label {
+    margin: 0 0 12px;
+    color: var(--warm);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  .wordmark {
+    font-family: "Fraunces", serif;
+  }
+
+  .hero-title {
+    margin: 0;
+    font-size: clamp(1.72rem, 3.15vw, 2.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .lead,
+  .section-text,
+  .timeline-item p,
+  .publication-card p,
+  .project-card p,
+  .hero-card p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .lead {
+    max-width: 58ch;
+    margin: 24px 0 0;
+    font-size: 1.08rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0 26px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .button:hover,
+  .gallery-card:hover,
+  .project-card:hover,
+  .publication-card:hover,
+  .timeline-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .button-primary {
+    background: var(--accent);
+    color: #f9f7f2;
+  }
+
+  .button-secondary {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.56);
+  }
+
+  .focus-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .focus-list li {
+    padding: 10px 14px;
+    border: 1px solid rgba(23, 73, 63, 0.14);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 20px;
+  }
+
+  .portrait {
+    aspect-ratio: 4 / 4.7;
+    border-radius: 24px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  .hero-card-copy h2 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 16px;
+    padding-top: 18px;
+    margin-top: auto;
+    border-top: 1px solid var(--line);
+    font-weight: 700;
+  }
+
+  .section-grid,
+  .gallery-section {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1fr);
+    gap: 24px;
+    padding: 36px;
+    margin-bottom: 28px;
+    border-radius: 32px;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .publication-stack,
+  .project-grid,
+  .timeline,
+  .gallery-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .publication-card,
+  .timeline-item {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.62);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .publication-card h3,
+  .project-card h3,
+  .timeline-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.76) 0%, rgba(240, 247, 244, 0.9) 100%);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .split-panel {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+    padding: 36px;
+    border-radius: 32px;
+  }
+
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: 11px;
+    width: 1px;
+    background: rgba(23, 33, 31, 0.12);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border: 5px solid #f8f5ee;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .timeline-org {
+    margin: 0 0 12px;
+    color: var(--warm);
+    font-weight: 800;
+  }
+
+  .signal-band {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    border-radius: 30px;
+    background:
+      linear-gradient(135deg, rgba(23, 73, 63, 0.94) 0%, rgba(34, 86, 73, 0.95) 100%);
+    color: #f8f5ee;
+  }
+
+  .signal-band .eyebrow,
+  .signal-band p {
+    color: rgba(248, 245, 238, 0.82);
+  }
+
+  .signal-band h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    line-height: 1.05;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gallery-card {
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    background: #d8ddd9;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 980px) {
+    .site-header,
+    .hero,
+    .section-grid,
+    .split-panel,
+    .signal-band,
+    .gallery-section {
+      grid-template-columns: 1fr;
+    }
+
+    .project-grid,
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .site-header {
+      position: static;
+      border-radius: 28px;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .section-grid,
+    .split-panel,
+    .signal-band,
+    .gallery-section {
+      padding: 28px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page-shell {
+      width: min(100% - 20px, 1180px);
+      padding-top: 12px;
+      padding-bottom: 48px;
+    }
+
+    .site-nav {
+      gap: 10px 14px;
+      font-size: 0.88rem;
+    }
+
+    .hero-title {
+      font-size: 1.72rem;
+    }
+
+    .section-heading h2,
+    .signal-band h2,
+    .hero-card-copy h2 {
+      font-size: 1.8rem;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .section-grid,
+    .split-panel,
+    .signal-band,
+    .gallery-section {
+      padding: 22px;
+      border-radius: 24px;
+    }
+  }
+</style>
