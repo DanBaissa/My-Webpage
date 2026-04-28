@@ -17,13 +17,6 @@ const selectedWork = [
     href: "/Intro_to_stats/"
   },
   {
-    category: "Conflict Modeling",
-    title: "Estimating Displacement Caused by War in Tigray",
-    description:
-      "Satellite-informed modeling of displacement patterns during the Tigray conflict.",
-    href: "/Tigray_Conflict_TS.html"
-  },
-  {
     category: "Remote Sensing",
     title: "Using Satellites to Estimate Population",
     description:
@@ -31,25 +24,11 @@ const selectedWork = [
     href: "/web_All_GPW-V4_Results_Final.html"
   },
   {
-    category: "Methods",
-    title: "Using Survival Models to Estimate Coup Probabilities",
+    category: "Robust Methods",
+    title: "RobustCause",
     description:
-      "An applied survival modeling project on the timing and likelihood of coups.",
-    href: "/Coup_Survival.html"
-  },
-  {
-    category: "Machine Learning",
-    title: "Stock Price Prediction with Transformers",
-    description:
-      "A transformer experiment exploring time-series forecasting and trading strategy design.",
-    href: "https://danbaissa.github.io/NLP/Transformer_Time/Karas_Stock_Price_Prediction_Trading_Strategy"
-  },
-  {
-    category: "NLP Teaching",
-    title: "Transformer Model Portfolio",
-    description:
-      "A hands-on tutorial collection spanning hate speech detection, autism diagnosis, multimodal tasks, speech, and attention visualization.",
-    href: "/Transformers/index.html"
+      "A library for robust regression, causal inference, and marketing mix modeling.",
+    href: "https://github.com/DanBaissa/RobustCause"
   }
 ];
 
@@ -152,7 +131,7 @@ const astroPhotos = [
       </div>
 
       <aside class="hero-card">
-        <img src="/profile.jpg" alt="Portrait of Daniel K Baissa" class="portrait" />
+        <img src="/me_better.png" alt="Portrait of Daniel K Baissa" class="portrait" />
         <div class="hero-card-copy">
           <h2>Daniel K Baissa</h2>
           <p>Ph.D. candidate in Government at Harvard University.</p>
@@ -168,22 +147,6 @@ const astroPhotos = [
       </aside>
     </section>
 
-    <section class="section-grid" id="research">
-      <div class="section-heading">
-        <p class="eyebrow">Research</p>
-        <h2>Selected publications and current lines of inquiry.</h2>
-      </div>
-      <div class="publication-stack">
-        {publications.map((item) => (
-          <article class="publication-card">
-            <p class="meta">{item.meta}</p>
-            <h3><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-
     <section class="section-grid" id="projects">
       <div class="section-heading">
         <p class="eyebrow">Projects</p>
@@ -194,6 +157,22 @@ const astroPhotos = [
           <article class="project-card">
             <p class="meta">{item.category}</p>
             <h3><a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{item.title}</a></h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-grid" id="research">
+      <div class="section-heading">
+        <p class="eyebrow">Research</p>
+        <h2>Selected publications and current lines of inquiry.</h2>
+      </div>
+      <div class="publication-stack">
+        {publications.map((item) => (
+          <article class="publication-card">
+            <p class="meta">{item.meta}</p>
+            <h3><a href={item.href} target="_blank" rel="noreferrer">{item.title}</a></h3>
             <p>{item.description}</p>
           </article>
         ))}
